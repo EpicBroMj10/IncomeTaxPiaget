@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-II EXAM WEAPON | Founder Edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --lemon: #FFF44F;
+            --lime: #32CD32;
+            --dark: #0F172A;
+            --accent: #E8F5E9;
+            --danger: #FF4B2B;
+            --glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--lemon), var(--lime));
+            background-attachment: fixed;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Animations --- */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseBorder {
+            0% { border-color: var(--lime); }
+            50% { border-color: var(--lemon); }
+            100% { border-color: var(--lime); }
+        }
+
+        /* --- Layout --- */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--dark);
+            color: white;
+            padding: 30px 20px;
+            z-index: 1000;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+        }
+
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            max-width: 1200px;
+        }
+
+        /* --- Components --- */
+        .weapon-header {
+            background: var(--dark);
+            color: var(--lemon);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            border: 4px solid var(--lime);
+            animation: slideUp 0.8s ease-out;
+            margin-bottom: 40px;
+        }
+
+        .section-card {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 8px solid var(--dark);
+            animation: slideUp 0.8s ease-out forwards;
+        }
+
+        .section-card:hover { transform: scale(1.01); border-left-color: var(--lime); }
+
+        /* --- Tables & Lists --- */
+        .format-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .format-table th { background: var(--dark); color: var(--lemon); padding: 15px; }
+        .format-table td { padding: 12px; border-bottom: 1px solid #ddd; }
+        .format-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* --- Formula & Note Styles --- */
+        .formula-zone {
+            background: #f0fdf4;
+            border: 2px dashed var(--lime);
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 1.1rem;
+            color: #166534;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .pro-tip {
+            background: #fff9db;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #fcc419;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .pro-tip i { font-size: 1.5rem; margin-right: 15px; color: #fcc419; }
+
+        .red-flag {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid var(--danger);
+            margin: 20px 0;
+            color: #c92a2a;
+        }
+
+        /* --- Navigation Items --- */
+        .nav-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .nav-item:hover { background: var(--lime); color: var(--dark); }
+        .nav-item i { margin-right: 12px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h2 style="color: var(--lemon);"><i class="fas fa-shield-halved"></i> COMMAND CENTER</h2>
+        <div class="nav-item" onclick="window.scrollTo(0, 0)"><i class="fas fa-bolt"></i> Battle Plan</div>
+        <div class="nav-item" onclick="document.getElementById('unit1').scrollIntoView()"><i class="fas fa-building"></i> Unit 1: Capital Gains</div>
+        <div class="nav-item" onclick="document.getElementById('unit2').scrollIntoView()"><i class="fas fa-gift"></i> Unit 2: IFOS</div>
+        <div class="nav-item" onclick="document.getElementById('unit3').scrollIntoView()"><i class="fas fa-rotate"></i> Unit 3: Set-Off</div>
+        <div class="nav-item" onclick="document.getElementById('unit4').scrollIntoView()"><i class="fas fa-receipt"></i> Unit 4: Deductions</div>
+        <div class="nav-item" onclick="document.getElementById('unit5').scrollIntoView()"><i class="fas fa-file-invoice-dollar"></i> Unit 5: E-Filing</div>
+        <div class="nav-item" onclick="document.getElementById('prob').scrollIntoView()"><i class="fas fa-brain"></i> 15-Mark Engines</div>
+    </nav>
+
+    <div class="main-content">
+        <div class="weapon-header">
+            <h1 style="margin:0;">INCOME TAX LAW & PRACTICE II</h1>
+            <p style="font-size:1.2rem; color: #fff;">Optimized for B.Com Exam Mastery | 2026 Edition</p>
+            <div style="margin-top:20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <strong><i class="fas fa-clock"></i> MISSION START:</strong> MONDAY 10:00 AM
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 style="color: var(--lime);"><i class="fas fa-rocket"></i> THE 24-HOUR STRATEGY</h2>
+            <div class="pro-tip">
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    [span_6](start_span)[span_7](start_span)<strong>Founder's Mindset:</strong> Do not read the textbook. Solve 3 full "Gross Total Income" problems. If the format is perfect, the marks will follow.[span_6](end_span)[span_7](end_span)
+                </div>
+            </div>
+            <ul>
+                <li><strong>Tonight:</strong> Master the Unit 3 "Set-Off" hierarchy. [span_8](start_span)[span_9](start_span)It’s the most common place to lose 5 marks.[span_8](end_span)[span_9](end_span)</li>
+                <li><strong>Tomorrow Morning:</strong> Memorize the 80C, 80D, and 80G limits. [span_10](start_span)[span_11](start_span)Use the table below.[span_10](end_span)[span_11](end_span)</li>
+                <li><strong>During Exam:</strong> Spend exactly 45 mins on Section C (15m problems). [span_12](start_span)Do them first[span_12](end_span)!</li>
+            </ul>
+        </div>
+
+        <div id="unit1" class="section-card">
+            <h2>UNIT 1: CAPITAL GAINS [Sec. 45-55]</h2>
+            <p>Profits from selling a Capital Asset. [span_13](start_span)[span_14](start_span)Land, Buildings, Jewellery, and Shares are the big ones.[span_13](end_span)[span_14](end_span)</p>
+            
+            <div class="formula-zone">
+                [span_15](start_span)[span_16](start_span)Indexed Cost = (Cost of Acquisition) × (CII of Year of Sale / CII of Year of Purchase)[span_15](end_span)[span_16](end_span)
+            </div>
+
+            <div class="red-flag">
+                <i class="fas fa-exclamation-triangle"></i> 
+                <strong>TRAP:</strong> Indexing is NOT required for Immovable Property sold after July 23, 2024 (Budget Change). [span_17](start_span)[span_18](start_span)Check your question's date[span_17](end_span)[span_18](end_span)!
+            </div>
+
+            <h3>Exemptions to Know:</h3>
+            <table class="format-table">
+                <tr><th>Section</th><th>Condition</th><th>Limit</th></tr>
+                [span_19](start_span)[span_20](start_span)<tr><td>54</td><td>Sell House → Buy House[span_19](end_span)[span_20](end_span)[span_21](start_span)[span_22](start_span)</td><td>Lower of Capital Gain or Cost of New House[span_21](end_span)[span_22](end_span)</td></tr>
+                [span_23](start_span)[span_24](start_span)<tr><td>54EC</td><td>Sell Land/Building → Buy Bonds (NHAI/REC)[span_23](end_span)[span_24](end_span)[span_25](start_span)</td><td>Max ₹50,00,000[span_25](end_span)</td></tr>
+                [span_26](start_span)[span_27](start_span)<tr><td>54F</td><td>Sell Non-Residential Asset → Buy House[span_26](end_span)[span_27](end_span)[span_28](start_span)</td><td>Proportionate: (LTCG × Cost of House) / Net Consideration[span_28](end_span)</td></tr>
+            </table>
+        </div>
+
+        <div id="unit2" class="section-card">
+            <h2>UNIT 2: INCOME FROM OTHER SOURCES [Sec. 56]</h2>
+            <p>The "Residual Head." [span_29](start_span)[span_30](start_span)If it doesn't fit elsewhere, it fits here.[span_29](end_span)[span_30](end_span)</p>
+            
+            <div class="pro-tip">
+                <i class="fas fa-calculator"></i>
+                <strong>GROSSING UP RULE:</strong> If you see "Net Amount" for Lotteries, multiply by 100/70. [span_31](start_span)[span_32](start_span)For Dividends/Interest, multiply by 100/90 if TDS is mentioned.[span_31](end_span)[span_32](end_span)
+            </div>
+
+            <table class="format-table">
+                <tr><th>Income Type</th><th>Taxability / Deduction</th></tr>
+                [span_33](start_span)[span_34](start_span)<tr><td>Lotteries / Card Games[span_33](end_span)[span_34](end_span)</td><td>Taxed @ 30% flat. [span_35](start_span)[span_36](start_span)No expenses allowed.[span_35](end_span)[span_36](end_span)</td></tr>
+                [span_37](start_span)[span_38](start_span)<tr><td>Family Pension[span_37](end_span)[span_38](end_span)[span_39](start_span)[span_40](start_span)</td><td>Deduction: Lower of 1/3rd of pension or ₹15,000.[span_39](end_span)[span_40](end_span)</td></tr>
+                [span_41](start_span)[span_42](start_span)<tr><td>Gifts from Non-Relatives[span_41](end_span)[span_42](end_span)[span_43](start_span)[span_44](start_span)</td><td>Taxable if total sum exceeds ₹50,000 in a year.[span_43](end_span)[span_44](end_span)</td></tr>
+            </table>
+        </div>
+
+        <div id="unit3" class="section-card">
+            <h2>UNIT 3: CLUBBING & SET-OFF [Sec. 60-80]</h2>
+            
+            [span_45](start_span)[span_46](start_span)<h3>The Golden Set-Off Rules:[span_45](end_span)[span_46](end_span)</h3>
+            <ul>
+                <li><strong>House Property Loss:</strong> Set off against any head, but max ₹2,00,000. [span_47](start_span)[span_48](start_span)Carry forward for 8 years.[span_47](end_span)[span_48](end_span)</li>
+                [span_49](start_span)[span_50](start_span)<li><strong>Business Loss:</strong> Set off against any head EXCEPT Salary.[span_49](end_span)[span_50](end_span)</li>
+                <li><strong>Speculation Loss:</strong> Set off ONLY against Speculation Gain. [span_51](start_span)[span_52](start_span)Carry forward for 4 years.[span_51](end_span)[span_52](end_span)</li>
+                [span_53](start_span)[span_54](start_span)<li><strong>LTCL:</strong> Set off ONLY against LTCG.[span_53](end_span)[span_54](end_span)</li>
+            </ul>
+
+            <div class="red-flag">
+                <strong>MINOR'S INCOME:</strong> Clubbed with parent having higher income. [span_55](start_span)[span_56](start_span)Exempt up to ₹1,500 per child[span_55](end_span)[span_56](end_span)!
+            </div>
+        </div>
+
+        <div id="unit4" class="section-card">
+            <h2>UNIT 4: DEDUCTIONS [Chapter VI-A]</h2>
+            <div class="exam-tip">
+                [span_57](start_span)[span_58](start_span)<strong>Note:</strong> Deductions are ONLY available under the Old Tax Regime.[span_57](end_span)[span_58](end_span)
+            </div>
+
+            <table class="format-table">
+                <tr><th>Section</th><th>Purpose</th><th>Maximum Limit</th></tr>
+                [span_59](start_span)[span_60](start_span)<tr><td>80C[span_59](end_span)[span_60](end_span)[span_61](start_span)[span_62](start_span)</td><td>PPF, LIC, NSC, Tution Fees[span_61](end_span)[span_62](end_span)[span_63](start_span)[span_64](start_span)</td><td>₹1,50,000 Total[span_63](end_span)[span_64](end_span)</td></tr>
+                [span_65](start_span)[span_66](start_span)<tr><td>80D[span_65](end_span)[span_66](end_span)[span_67](start_span)[span_68](start_span)</td><td>Medical Insurance Premium[span_67](end_span)[span_68](end_span)[span_69](start_span)[span_70](start_span)</td><td>₹25,000 (Self) + ₹50,000 (Senior Parents)[span_69](end_span)[span_70](end_span)</td></tr>
+                [span_71](start_span)[span_72](start_span)<tr><td>80G[span_71](end_span)[span_72](end_span)[span_73](start_span)[span_74](start_span)</td><td>Donations (PM Relief Fund, etc.)[span_73](end_span)[span_74](end_span)[span_75](start_span)[span_76](start_span)</td><td>100% or 50% depending on fund.[span_75](end_span)[span_76](end_span)</td></tr>
+                [span_77](start_span)[span_78](start_span)<tr><td>80U[span_77](end_span)[span_78](end_span)[span_79](start_span)[span_80](start_span)</td><td>Disabled Assessee (Self)[span_79](end_span)[span_80](end_span)[span_81](start_span)[span_82](start_span)</td><td>₹75,000 (Normal), ₹1,25,000 (Severe).[span_81](end_span)[span_82](end_span)</td></tr>
+            </table>
+        </div>
+
+        <div id="unit5" class="section-card">
+            <h2>UNIT 5: TDS & RETURNS</h2>
+            [span_83](start_span)[span_84](start_span)<p>Practical aspects of filing.[span_83](end_span)[span_84](end_span)</p>
+            <ul>
+                <li><strong>TDS (Sec 194):</strong> "Pay as you earn." [span_85](start_span)[span_86](start_span)Tax is cut at the source of income.[span_85](end_span)[span_86](end_span)</li>
+                <li><strong>PAN (Permanent Account Number):</strong> 10-digit alphanumeric code. [span_87](start_span)[span_88](start_span)Mandatory for transactions > ₹50k.[span_87](end_span)[span_88](end_span)</li>
+                [span_89](start_span)[span_90](start_span)<li><strong>Self-Assessment (Sec 140A):</strong> Assessee calculates and pays tax themselves before filing return.[span_89](end_span)[span_90](end_span)</li>
+                [span_91](start_span)<li><strong>ITR Forms:</strong> ITR-1 (Sahaj) for individuals with Salary income.[span_91](end_span)</li>
+            </ul>
+        </div>
+
+        <div id="prob" class="section-card" style="border-left-color: var(--lime);">
+            <h2 style="text-align:center;">🔥 THE 15-MARK MASTER FORMAT 🔥</h2>
+            [span_92](start_span)[span_93](start_span)<p>Use this structure for any Section C problem involving "Computation of Total Income."[span_92](end_span)[span_93](end_span)</p>
+            
+            <div class="formula-zone">
+                <p>1. [span_94](start_span)[span_95](start_span)Income from Salaries (after ₹50k Standard Deduction)[span_94](end_span)[span_95](end_span)</p>
+                <p>2. [span_96](start_span)[span_97](start_span)Income from House Property (after 30% Standard Deduction)[span_96](end_span)[span_97](end_span)</p>
+                <p>3. [span_98](start_span)Profits & Gains of Business / Profession[span_98](end_span)</p>
+                <p>4. [span_99](start_span)[span_100](start_span)Capital Gains (Short Term & Long Term)[span_99](end_span)[span_100](end_span)</p>
+                <p>5. [span_101](start_span)[span_102](start_span)Income from Other Sources (Grossed Up)[span_101](end_span)[span_102](end_span)</p>
+                <hr>
+                [span_103](start_span)[span_104](start_span)<p><strong>GROSS TOTAL INCOME (GTI)</strong>[span_103](end_span)[span_104](end_span)</p>
+                [span_105](start_span)[span_106](start_span)<p>Less: Deductions under Section 80C to 80U[span_105](end_span)[span_106](end_span)</p>
+                <hr>
+                [span_107](start_span)[span_108](start_span)<p><strong>TOTAL TAXABLE INCOME</strong>[span_107](end_span)[span_108](end_span)</p>
+            </div>
+
+            <div class="pro-tip">
+                <i class="fas fa-check-double"></i>
+                <div>
+                    <strong>Exam Checklist:</strong> 
+                    Did you gross up the lottery? Did you subtract the ₹1,500 for the minor child? [span_109](start_span)[span_110](start_span)[span_111](start_span)Did you limit 80C to ₹1.5L?[span_109](end_span)[span_110](end_span)[span_111](end_span)
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Interactive highlight effect
+        document.querySelectorAll('.section-card').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.boxShadow = "0 15px 40px rgba(50, 205, 50, 0.3)";
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+            });
+        });
+    </script>
+</body>
+</html>
