@@ -53,6 +53,9 @@ body.hov #cur-ring{width:52px;height:52px;border-color:rgba(198,241,53,.6)}
 #pw-err.show{opacity:1}
 .pw-hint{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.12);margin-top:28px;font-weight:600}
 @keyframes pwOrbBeat{0%{box-shadow:0 0 0 0 rgba(130,0,255,.5)}80%{box-shadow:0 0 80px 50px rgba(130,0,255,0)}100%{box-shadow:0 0 0 0 rgba(130,0,255,0)}}
+#lock-c{position:relative;width:90px;height:120px;margin:0 auto 28px;cursor:default;perspective:600px;opacity:.06;transition:opacity 1.4s ease}
+#key-svg{position:absolute;left:28px;bottom:-15px;opacity:0;transform:translateX(160px) translateY(28px) rotate(-88deg);transform-origin:17px 17px}
+@media(max-width:768px){.prob-4col{grid-template-columns:1fr 1fr!important}}
 #ag{position:fixed;inset:0;z-index:8500;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;text-align:center;}
 #ag.flash{animation:agFlash .9s ease forwards}
 .ag-t{font-family:'League Spartan',sans-serif;font-size:clamp(44px,9vw,110px);letter-spacing:.2em;color:var(--dark);text-shadow:4px 4px 0 var(--g),-2px -2px 0 var(--pk)}
@@ -442,6 +445,23 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
     <span class="t1">N</span><span class="t2">U</span><span class="t3">U</span><span class="t4">L</span>
   </div>
   <div class="pw-by">NotTheBestPlaceToBuyStuff — Prototype Access</div>
+  <div id="lock-c">
+    <svg viewBox="0 0 80 98" width="80" height="98" overflow="visible">
+      <path id="shackle" d="M21,52 L21,28 Q21,7 40,7 Q59,7 59,28 L59,52" fill="none" stroke="#C6F135" stroke-width="4.5" stroke-linecap="round" style="transform-origin:59px 52px;transition:transform .55s cubic-bezier(.16,1,.3,1)"/>
+      <rect id="lbody" x="7" y="49" width="66" height="46" rx="9" fill="rgba(198,241,53,0.08)" stroke="#C6F135" stroke-width="2.5" style="transition:fill .3s,filter .3s"/>
+      <circle cx="40" cy="68" r="7.5" fill="none" stroke="#C6F135" stroke-width="2.5"/>
+      <line x1="40" y1="75.5" x2="40" y2="87" stroke="#C6F135" stroke-width="2.5" stroke-linecap="round"/>
+      <circle id="lglow" cx="40" cy="72" r="36" fill="none" stroke="transparent" stroke-width="1" style="transition:all .5s"/>
+    </svg>
+    <svg id="key-svg" viewBox="0 0 34 92" width="34" height="92">
+      <circle cx="17" cy="17" r="12.5" fill="none" stroke="#FFE500" stroke-width="3"/>
+      <circle cx="17" cy="17" r="5" fill="rgba(255,229,0,.25)" stroke="#FFE500" stroke-width="2"/>
+      <line x1="17" y1="29.5" x2="17" y2="80" stroke="#FFE500" stroke-width="3" stroke-linecap="round"/>
+      <line x1="17" y1="49" x2="26" y2="49" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="17" y1="60" x2="24" y2="60" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="17" y1="71" x2="26" y2="71" stroke="#FFE500" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="pw-row">
     <input type="password" id="pw-inp" placeholder="Enter access code" autocomplete="off" spellcheck="false"/>
     <button id="pw-sub">→</button>
@@ -503,6 +523,51 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
     <div class="rv" data-d="60" style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(26px,4vw,46px);line-height:1.22;letter-spacing:-.01em;color:var(--dark);margin-bottom:28px">A multi-material utility t-shirt featuring a <span style="color:#4a7000">detachable back panel</span> that folds into a protective <span style="color:#4a7000">laptop envelope sleeve</span>, a <span style="color:var(--pk)">front patch</span> that unfolds into a <span style="color:var(--pk)">two-card wallet</span>, and a built-in pocket matrix for a custom <span style="color:#7a6000">38mm luxury timepiece</span>.</div>
     <div class="qb qg rv" data-d="140" style="display:inline-block;text-align:left;max-width:640px">
       <p style="font-size:14px;line-height:1.95;font-weight:700;color:var(--dark)">All hardware modules snap off seamlessly. All modules snap back on.<br><b style="color:#4a7000">One garment. Infinite configurations.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- THE MATH / PROBLEM STATEMENT -->
+<section id="s-problem" style="padding:100px 64px 90px;background:var(--dark);border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden">
+  <div style="position:relative;z-index:1">
+    <div class="sec-lbl rv" style="color:var(--g)"><span style="background:var(--g)"></span>The Problem</div>
+    <div class="rv" data-d="60" style="font-family:'League Spartan',sans-serif;font-size:clamp(34px,5.5vw,64px);line-height:1.05;color:#fff;font-weight:900;margin-bottom:40px;max-width:820px">The fashion-forward Indian consumer already spends <span style="color:var(--g)">₹8,000</span> on all of this.<br><span style="color:rgba(255,255,255,.35)">Just not this smartly.</span></div>
+    <div class="prob-4col rv" data-d="80" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;margin-bottom:2px">
+      <div style="padding:28px 24px;background:rgba(255,255,255,.04);border-top:3px solid var(--g)">
+        <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.35em;color:#4a7000;text-transform:uppercase;margin-bottom:10px;font-weight:700">Watch</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:42px;color:var(--g);line-height:1;font-weight:900">₹2–3K</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.7">Good quality standalone timepiece</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(255,255,255,.04);border-top:3px solid var(--y)">
+        <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.35em;color:#7a6000;text-transform:uppercase;margin-bottom:10px;font-weight:700">Wallet</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:42px;color:var(--y);line-height:1;font-weight:900">₹1–2K</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.7">Branded, decent quality</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(255,255,255,.04);border-top:3px solid var(--pk)">
+        <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.35em;color:var(--pk);text-transform:uppercase;margin-bottom:10px;font-weight:700">T-Shirt</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:42px;color:var(--pk);line-height:1;font-weight:900">₹1–2K</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.7">Fashion-forward branded tee</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(255,255,255,.04);border-top:3px solid rgba(255,255,255,.25)">
+        <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.35em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:10px;font-weight:700">Utility Bag</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:42px;color:#fff;line-height:1;font-weight:900">₹1–2K</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.7">Small stylish carry bag</div>
+      </div>
+    </div>
+    <div class="rv mobile-stack" data-d="160" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px">
+      <div style="padding:36px 28px;background:rgba(255,255,255,.04);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-bottom:12px;font-weight:700">Buying separately</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:clamp(48px,7vw,90px);color:rgba(255,255,255,.2);line-height:.9;font-weight:900">₹5K–9K</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.3);margin-top:12px;line-height:2.1">4 items · 4 trips · 4 receipts<br>Still separate. Still a hassle.</div>
+      </div>
+      <div style="padding:36px 28px;background:rgba(198,241,53,.07);border:2px solid rgba(198,241,53,.28);display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.3em;color:#4a7000;text-transform:uppercase;margin-bottom:12px;font-weight:700">NUUL 01 — Everything</div>
+        <div style="font-family:'League Spartan',sans-serif;font-size:clamp(48px,7vw,90px);color:var(--g);line-height:.9;font-weight:900">₹6,500</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:12px;line-height:2.1">1 garment · everything on you<br>Utility. Style. Always attached.</div>
+      </div>
+    </div>
+    <div class="qb rv" data-d="240" style="border-left:4px solid var(--g);background:rgba(198,241,53,.06);margin-top:2px">
+      <p style="color:rgba(255,255,255,.75)">For the fashion-forward Indian consumer who wants <b style="color:var(--g)">utility, quality, and style</b> — without choosing between them. And without spending more to get there.</p>
     </div>
   </div>
 </section>
@@ -864,7 +929,7 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
     <div class="dn"><div class="dn-n" style="color:var(--dark)">∞</div><div class="dn-l">Waitlist After</div></div>
   </div>
   <!-- COUNTDOWN -->
-  <div class="countdown-wrap rv" data-d="100">
+  <div class="countdown-wrap rv" data-d="100" style="display:none">
     <span class="cd-label">🕐 Drop Countdown</span>
     <div class="cd-grid">
       <div class="cd-unit"><div class="cd-num" id="cd-d">00</div><div class="cd-name">Days</div></div>
@@ -872,7 +937,9 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
       <div class="cd-unit"><div class="cd-num" id="cd-m">00</div><div class="cd-name">Mins</div></div>
       <div class="cd-unit"><div class="cd-num" id="cd-s">00</div><div class="cd-name">Secs</div></div>
     </div>
-    <p style="font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-top:16px;font-weight:700">Drop date to be announced — timer starts on announcement</p>
+  </div>
+  <div class="rv" data-d="100" style="margin-top:20px;padding:24px 28px;background:rgba(255,255,255,.06);border-left:4px solid var(--pk)">
+    <p style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.65);letter-spacing:.08em;line-height:2;font-weight:700"><b style="color:var(--pk)">Drop date TBA.</b> &nbsp;100 pieces. No restock. No second batch — unless the first one earns it.</p>
   </div>
   <div class="drop-cards rv" data-d="120">
     <div class="card cy"><div class="c-num" style="color:#7a6000">T-3W</div><div class="c-ttl" style="color:#7a6000">Microsite Goes Live</div><p class="c-body">Black page. Brand name. Countdown timer. Email capture. <b>Zero product information. Zero price.</b></p></div>
@@ -891,6 +958,11 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
     <span class="pill pg">NULL = Zero</span><span class="pill py">NOOL = Thread</span>
     <span class="pill ppk">NUUL = Both</span><span class="pill pd">Chennai Made</span>
     <span class="pill pg">Limited Runs</span><span class="pill py">Rs.6,500 · 100 Pieces</span>
+  </div>
+  <div class="rv" data-d="300" style="margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.1)">
+    <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-weight:700">What we're here for</div>
+    <div style="font-family:'League Spartan',sans-serif;font-size:clamp(24px,3.8vw,42px);color:#fff;font-weight:900;line-height:1.15;max-width:680px;margin:0 auto">Seeking incubation support to take Batch 01<br>from prototype to production.</div>
+    <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.3em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-top:22px;font-weight:700">Chennai · 2025 · NotTheBestPlaceToBuyStuff</div>
   </div>
 </section>
 <footer>
@@ -1293,6 +1365,7 @@ function updateProg(len){
   if(orbEl)orbEl.style.opacity=String(p*.82);
   if(brandEl){brandEl.style.opacity=String(.04+p*.96);brandEl.style.filter='brightness('+(.2+p*.8)+')';}
   if(byEl)byEl.style.color='rgba(255,255,255,'+(.07+p*.43)+')';
+  var lockEl=document.getElementById('lock-c');if(lockEl)lockEl.style.opacity=String(.06+p*.94);
   hbVol=.28+p*.58;
   hbMs=Math.round(920-p*280);
   ekgAlpha=.25+p*.68;
@@ -1341,27 +1414,45 @@ function playMechClick(){
 function doUnlock(){
   pwDone=true;
   inpEl.classList.add('ok');inpEl.disabled=true;subEl.disabled=true;
-  playBassDrop();stopHb();
-  setTimeout(function(){ekgBeatPhase=0;},100);
-  setTimeout(playMechClick,500);
+  /* Key animation begins — heartbeat keeps playing */
+  var key=document.getElementById('key-svg'),lkc=document.getElementById('lock-c');
+  if(key)key.style.cssText='position:absolute;left:28px;bottom:-15px;opacity:0;transform:translateX(160px) translateY(28px) rotate(-88deg);transform-origin:17px 17px';
+  setTimeout(function(){if(key){key.style.transition='transform 0.6s cubic-bezier(.4,0,.2,1),opacity 0.25s ease';key.style.opacity='1';key.style.transform='translateX(55px) translateY(6px) rotate(-44deg)';}},250);
+  setTimeout(function(){if(key){key.style.transition='transform 0.42s cubic-bezier(.16,1,.3,1)';key.style.transform='translateX(0px) translateY(-12px) rotate(0deg)';}},860);
+  setTimeout(function(){if(key){key.style.transition='transform 0.22s ease-in';key.style.transform='translateX(0px) translateY(7px) rotate(0deg)';}},1300);
   setTimeout(function(){
-    pwEl.style.transition='background .06s ease';
-    pwEl.style.background='#ffffff';
+    if(key){key.style.transition='transform 0.42s cubic-bezier(.6,0,.4,1.4)';key.style.transform='translateX(0px) translateY(7px) rotate(88deg)';}
+    playMechClick(); /* key turns = vault mechanism sounds */
+  },1530);
+  setTimeout(function(){
+    /* Lock shackle opens — bass drop + heartbeat dies */
+    playBassDrop();stopHb();ekgBeatPhase=0;
+    if(document.getElementById('shackle'))document.getElementById('shackle').style.transform='rotate(-56deg) translateX(4px)';
+    if(document.getElementById('lbody')){document.getElementById('lbody').style.fill='rgba(198,241,53,.25)';document.getElementById('lbody').style.filter='drop-shadow(0 0 18px #C6F135)';}
+    if(lkc){lkc.style.transition='transform .4s cubic-bezier(.36,1.8,.4,1)';lkc.style.transform='scale(1.12)';setTimeout(function(){lkc.style.transform='scale(1)';},400);}
+  },1870);
+  /* 500ms silence: 1870 → 2370 */
+  setTimeout(function(){
+    /* White flash + particles + ACCESS GRANTED */
+    var r=lkc?lkc.getBoundingClientRect():null;
+    if(r)spawnP(r.left+r.width/2,r.top+r.height/2);
     spawnP(innerWidth*.5,innerHeight*.5);
     spawnP(innerWidth*.2,innerHeight*.35);
     spawnP(innerWidth*.8,innerHeight*.65);
     drawP();
+    pwEl.style.transition='background .06s ease';
+    pwEl.style.background='#ffffff';
     document.getElementById('ag').classList.add('flash');
-  },950);
-  setTimeout(function(){pwEl.style.transition='background .55s ease';pwEl.style.background='#000000';},1150);
-  setTimeout(function(){pwEl.style.animation='pwOut .85s forwards';},1700);
+  },2400);
+  setTimeout(function(){pwEl.style.transition='background .55s ease';pwEl.style.background='#000000';},2600);
+  setTimeout(function(){pwEl.style.animation='pwOut .85s forwards';},3100);
   setTimeout(function(){
     ekgActive=false;
     pwEl.style.display='none';
     document.getElementById('main').classList.add('show');
     document.querySelectorAll('.lt').forEach(function(l){l.style.animationPlayState='running';});
     if(pwCtx){try{pwCtx.close();}catch(e){}pwCtx=null;}
-  },2700);
+  },4100);
 }
 
 /* ── SUBMIT ── */
