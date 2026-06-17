@@ -301,6 +301,8 @@ nav.ny{border-color:var(--y)}nav.npk{border-color:var(--pk)}
 .pd-flap{position:absolute;width:22px;height:10px;border-radius:2px;background:rgba(255,45,120,.25);border:1px solid var(--pk);z-index:4;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:4px;color:var(--pk);letter-spacing:.05em}
 .pd-hint{font-family:'Space Mono',monospace;font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-top:8px;color:rgba(0,0,0,.35);transition:color .4s}
 .pd-btn.open~.pd-hint{color:var(--g)}
+.temp-indicator{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;text-align:center;margin-top:12px;color:rgba(198,241,53,.55);font-weight:700;animation:dragPulse 1.9s ease-in-out infinite}
+@keyframes dragPulse{0%,100%{opacity:.35;letter-spacing:.18em}50%{opacity:1;letter-spacing:.24em;color:#C6F135}}
 /* THERMOCHROMIC SLIDER */
 .thermo-slider-wrap{background:var(--dark);border-radius:8px;padding:24px 28px;margin-top:16px;border:2px solid rgba(198,241,53,.2)}
 .thermo-slider-title{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:var(--g);margin-bottom:16px;display:block}
@@ -476,6 +478,7 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
 <nav id="nav">
   <span class="nav-logo">N<span>U</span>UL</span>
   <div class="nav-links">
+    <a href="#s-problem" class="nl">The Math</a>
     <a href="#s-name" class="nl">Name</a>
     <a href="#s-phone" class="nl">Modules</a>
     <a href="#s-back" class="nl">Back Panel</a>
@@ -922,6 +925,20 @@ footer{padding:22px 64px;display:flex;justify-content:space-between;align-items:
   <div style="position:relative;z-index:1">
   <div class="sec-lbl rv" style="color:var(--pk)">Section 07 · The Drop</div>
   <div class="sh rv">100 Pieces. <span style="color:var(--pk)">Password Protected.</span><br>Rs. 6,500.</div>
+  <div class="rv" data-d="60" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:2px">
+    <div style="padding:24px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:'League Spartan',sans-serif;font-size:40px;line-height:1;color:rgba(255,255,255,.45)">₹2.5K</div>
+      <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:8px;font-weight:700">Production Cost</div>
+    </div>
+    <div style="padding:24px 16px;background:rgba(198,241,53,.06);border:1px solid rgba(198,241,53,.2);text-align:center">
+      <div style="font-family:'League Spartan',sans-serif;font-size:40px;line-height:1;color:var(--g)">₹6,500</div>
+      <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:8px;font-weight:700">Sell Price</div>
+    </div>
+    <div style="padding:24px 16px;background:rgba(255,229,0,.05);border:1px solid rgba(255,229,0,.2);text-align:center">
+      <div style="font-family:'League Spartan',sans-serif;font-size:40px;line-height:1;color:var(--y)">57%+</div>
+      <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:8px;font-weight:700">Gross Margin</div>
+    </div>
+  </div>
   <div class="drop-nums rv" data-d="80">
     <div class="dn"><div class="dn-n" style="color:#4a7000">100</div><div class="dn-l">Pieces · Batch 01</div></div>
     <div class="dn"><div class="dn-n" style="color:var(--pk)">🔒</div><div class="dn-l">Password Only</div></div>
@@ -1125,6 +1142,7 @@ function togglePd(){
 document.getElementById('t-slider').addEventListener('input',function(){
   var temp=parseInt(this.value);
   var disp=document.getElementById('t-display'),sl=document.getElementById('t-status-lbl'),ind=document.getElementById('t-indicator');
+  ind.style.animation='none';
   disp.textContent=temp+'°C';
   if(temp>=31){
     var act=Math.min(1,(temp-31)/4);
